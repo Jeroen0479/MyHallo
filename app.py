@@ -1,5 +1,4 @@
 import os
-
 from flask import Flask
 
 app = Flask(__name__)
@@ -12,21 +11,17 @@ def print_azure_environment():
     app_instance_id = os.getenv('WEBSITE_INSTANCE_ID', 'Unknown')
     app_version = os.getenv('WEBSITE_NODE_DEFAULT_VERSION', 'Unknown')
 
-    # Printing environment details
-    print(f"App Name: {app_name}")
-    print(f"App Region: {app_region}")
-    print(f"App Instance ID: {app_instance_id}")
-    print(f"App Version: {app_version}")
+    # Returning environment details in the HTTP response
+    return f"""
+    App Name: {app_name}<br>
+    App Region: {app_region}<br>
+    App Instance ID: {app_instance_id}<br>
+    App Version: {app_version}
+    """
 
-
+@app.route('/hello')
 def hello():
-    print (" Start here")
-    print_azure_environment()
     return "Hello, this is a small text message! \n I hope you like it"
-
 
 if __name__ == '__main__':
     app.run(debug=True)
-    
-
-print ("klaar")
