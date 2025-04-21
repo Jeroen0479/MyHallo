@@ -5,9 +5,6 @@ from flask import Flask
 app = Flask(__name__)
 
 @app.route('/')
-def hello():
-    return "Hello, this is a small text message! \n I hope you like it"
-
 def print_azure_environment():
     # Fetching environment variables
     app_name = os.getenv('WEBSITE_SITE_NAME', 'Unknown')
@@ -22,8 +19,14 @@ def print_azure_environment():
     print(f"App Version: {app_version}")
 
 
+def hello():
+    print (" Start here")
+    print_azure_environment()
+    return "Hello, this is a small text message! \n I hope you like it"
+
+
 if __name__ == '__main__':
     app.run(debug=True)
-    print_azure_environment()
+    
 
 print ("klaar")
