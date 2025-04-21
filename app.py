@@ -1,4 +1,5 @@
 import os
+
 from flask import Flask
 
 app = Flask(__name__)
@@ -6,11 +7,6 @@ app = Flask(__name__)
 @app.route('/')
 def hello():
     return "Hello, this is a small text message! \n I hope you like it"
-
-if __name__ == '__main__':
-    app.run(debug=True)
-
-import os
 
 def print_azure_environment():
     # Fetching environment variables
@@ -25,5 +21,9 @@ def print_azure_environment():
     print(f"App Instance ID: {app_instance_id}")
     print(f"App Version: {app_version}")
 
-if __name__ == "__main__":
+
+if __name__ == '__main__':
+    app.run(debug=True)
     print_azure_environment()
+
+print ("klaar")
